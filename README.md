@@ -15,12 +15,12 @@ cordova.exec(function( success){},function(error){},"EasemobCustomer","callCusto
  "password":"123456"
 },
 "msgtype":{
-      track:{
-        title:       "我正在看：",
-        price:       "¥: 235.00",
-        desc:        "女装小香风气质蕾丝假两件短袖",
-        img_url:     "http://yourdomain.com/img/a.jpg",
-        item_url:    "http://yourdomain.com/item/a.html"
+      "track":{
+        "title":       "我正在看：",
+        "price":       "¥: 235.00",
+        "desc":        "女装小香风气质蕾丝假两件短袖",
+        "img_url":     "http://yourdomain.com/img/a.jpg",
+        "item_url":    "http://yourdomain.com/item/a.html"
       }
 	},
 "weichat":{
