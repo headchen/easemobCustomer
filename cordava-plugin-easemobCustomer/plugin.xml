@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:rim="http://www.blackberry.com/ns/widgets"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-easemobCustomer"
+    version="1.0.0">
+
+    <name>EasemobCustomer</name>
+    <description>A cordova plugin, a JS version of EaseMobileCustomer </description>
+    <license>MIT</license>
+    <keywords>cordova,easemob,customer</keywords>
+    <repo>https://github.com/headchen/cordova-plugin-easeUICustomer.git</repo>
+    <issue>https://github.com/headchen/cordova-plugin-easeUICustomer/issues</issue>
+
+    <!-- add this to your config.xml -->
+    <!-- <preference name="WECHATAPPID" value="YOUR_WECHAT_APP_ID_HERE" /> -->
+    <preference name="EASEMOB_APPKEY" default="zgsoft#ygyjs" value="zgsoft#ygyjs" />
+    <!--require cordova version -->
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+    <!-- js module-->
+    <js-module src="www/cordova-easemobCustomer-plugin.js" name="cordova-easemobCustomer-plugin">
+        <!--Here module.exports gets inserted into the window object as window.Easemob.Customer. -->
+        <clobbers target="EasemobCustomer" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="EasemobCustomer">
+                <param name="android-package" value="com.zgsoft.easemobCustomerPlugin"/>
+            </feature>
+            <preference name="EASEMOB_APPKEY" value="$EASEMOB_APPKEY"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <!-- 项目权限 -->
+            <!-- 震动 -->
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <!-- 网络 -->
+            <uses-permission android:name="android.permission.INTERNET" />
+            <!-- 录音 -->
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+            <!-- 相机 -->
+            <uses-permission android:name="android.permission.CAMERA" />
+            <!-- 访问网络状态 -->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <!-- 写入外部存储 -->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <!-- 安装卸载文件系统 -->
+            <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+            <!-- 访问精确定位 -->
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <!-- 访问WIFI状态 -->
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <!-- 改变WIFI状态 -->
+            <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+            <!-- 唤醒锁屏 -->
+            <uses-permission android:name="android.permission.WAKE_LOCK" />
+            <!-- 修改音频设置 -->
+            <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+            <!-- 读取手机状态 -->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!-- 配置Easecustom库里的Activity类 -->
+            <activity
+                android:name="com.easemob.customer.activity.ChatActivity"
+                android:theme="@style/MLTheme.Red" />
+
+            <!-- 配置EaseUI库里的Activity类 -->
+            <!-- 显示下载大图页面 -->
+            <activity
+                android:name="com.easemob.easeui.ui.EaseShowBigImageActivity"
+                android:screenOrientation="portrait"
+                android:theme="@style/horizontal_slide" />
+
+            <meta-data
+                android:name="EASEMOB_APPKEY"
+                android:value="$EASEMOB_APPKEY" />
+
+        </config-file>
+
+        <!-- 这里插入进行编译-->
+        <framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/easemobCustomerPlugin.java" target-dir="src/com/zgsoft" />
+        <source-file src="libs/android/easecustom.aar" target-dir="libs" />
+        <source-file src="libs/android/easeui.aar" target-dir="libs" />
+    </platform>
+</plugin>
