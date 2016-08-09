@@ -16,12 +16,21 @@ cordova.exec(function( success){},function(error){},"EasemobCustomer","callCusto
 },
 "msgtype":{
       "track":{
-        "title":       "我正在看：",
+        "title":       "100025",  //放商品编号
         "price":       "¥: 235.00",
         "desc":        "女装小香风气质蕾丝假两件短袖",
         "img_url":     "http://yourdomain.com/img/a.jpg",
         "item_url":    "http://yourdomain.com/item/a.html"
       }
+      "order":{
+        "order_title": "160210083",  //一般为订单号
+        "title":       "2522226",   //放商品编号
+        "price":       "¥: 235.00",
+        "desc":        "女装小香风气质蕾丝假两件短袖", // 商品描述
+        "img_url":     "http://yourdomain.com/img/a.jpg", // 商品图片链接
+        "item_url":    "http://yourdomain.com/item/a.html"  // 商品页面链接
+      }	  
+	  
 	},
 "weichat":{
    "agentUsername":"xxx@xxx.com",
@@ -41,10 +50,10 @@ cordova.exec(function( success){},function(error){},"EasemobCustomer","callCusto
 ```
 
 这样的形式：  
-*  extraUserId : 客服ID
+*  extraUserId : 客服ID,一般「集成app」时指定。
 *  user ： 需要动态注册到app上去。
-*  msgtype: 用了推送浏览足迹
-*  wechat: 用了推送客户信息
+*  msgtype: 用了推送浏览「足迹」和「订单」，「足迹」和「订单」的区别在于：track<->order order: order_title
+*  wechat: 用了推送顾客信息
 
 具体看环信客服的文档即可
  
