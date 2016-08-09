@@ -21,7 +21,7 @@ cordova.exec(function( success){},function(error){},"EasemobCustomer","callCusto
         "desc":        "女装小香风气质蕾丝假两件短袖",
         "img_url":     "http://yourdomain.com/img/a.jpg",
         "item_url":    "http://yourdomain.com/item/a.html"
-      }
+      },
       "order":{
         "order_title": "160210083",  //一般为订单号
         "title":       "2522226",   //放商品编号
